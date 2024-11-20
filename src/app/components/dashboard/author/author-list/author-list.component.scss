@@ -1,0 +1,45 @@
+.p-input-icon-left{
+  width: 100%;
+  border-radius: 30px;
+  outline: none;
+}
+
+.pi-add{
+  display: flex;
+  justify-content: end;
+  align-self: center;
+
+  a{
+    font-size: 20px;
+  }
+}
+
+.card-author{
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 25px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.items{
+  width: 200px;
+  height: 120px;
+  border: 2px solid #281a75;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px
+}
+
+.items .p-card-title{
+  font-weight: 700;
+}
+
+.items .p-card-body{
+
+}
+
+

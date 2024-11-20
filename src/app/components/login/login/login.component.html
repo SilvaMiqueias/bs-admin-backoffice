@@ -1,0 +1,26 @@
+<div>
+     <div class="container">
+             <div class="content">
+               <form [formGroup]="form">
+                 <div class="fields col-md-4">
+                     <h1>BSs</h1>
+                     <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-envelope"></i>
+                            </span>
+                           <input pInputText type="email" placeholder="email" formControlName="email" />
+                           <p-message *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" severity="error" text="E-mail inválido ou obrigatório!"></p-message>
+                     </div>
+                     <div class="p-inputgroup">
+                       <p-password formControlName="password" placeholder="**********"  [feedback]="false" [toggleMask]="true"></p-password>
+                       <p-message *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched" severity="error" text="A senha é obrigatória!"></p-message>
+                     </div>
+                     <div class="col-md-12">
+                       <button [ngClass]="form.invalid ? 'bt-disable' : 'bt-base'"  [disabled]="form.invalid"  (click)="submit()"> Login </button>
+                     </div>
+                 </div>
+               </form>
+             </div>
+     </div>
+
+</div>

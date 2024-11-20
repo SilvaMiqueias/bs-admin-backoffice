@@ -1,0 +1,49 @@
+.grid-menu{
+  display: grid;
+  gap: 15px
+}
+
+.title{
+  padding: 10px;
+  font-family: 'fangsong';
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffff;
+}
+
+.item-menu{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: baseline;
+  padding: 10px;
+  text-decoration: none;
+  color: #ffff;
+  font-family: Arial;
+  font-size: 16px;
+
+  &:hover{
+   @extend .active;
+    padding: 10px
+  }
+}
+
+
+.item-menu .pi{
+  color: #ffff;
+  text-decoration: none;
+}
+
+
+.active{
+  background-color: #F5F3FF;
+  color: #2f2e2e;
+  //border-left: 4px solid #ffffff;
+  //border-right: 4px solid #ffffff;
+  border-radius: 5px;
+}
+
+.active .pi{
+  color: #2f2e2e;
+}
