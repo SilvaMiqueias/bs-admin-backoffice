@@ -1,0 +1,33 @@
+<div >
+     <h1>Configuração - Edição</h1>
+      <div   class="mt-5 content">
+        <form class="form" [formGroup]="form">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-envelope"></i>
+            </span>
+            <input  pInputText formControlName="email" type="email" placeholder="E-mail"/>
+            <p-message *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" severity="error" text="E-mail inválido ou obrigatório!"></p-message>
+          </div>
+
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input pInputText formControlName="name" type="text" placeholder="Nome"/>
+            <p-message *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" severity="error" text="Nome é obrigatório!"></p-message>
+          </div>
+          <div class="p-inputgroup">
+            <p-password formControlName="password" placeholder="Digite sua senha para confirmar a ação" [feedback]="false" [toggleMask]="true"></p-password>
+            <p-message *ngIf="form.get('password')?.hasError('required')" severity="error" text="Senha é obrigatório!"></p-message>
+          </div>
+          <div class="buts">
+            <a  [routerLink]="['/config']" class=" pi pi-arrow-left bt-edit" [matTooltip]="'Cancelar'"></a>
+            <a  class="pi pi-check bt-edit" (click)="update()" [matTooltip]="'Atualizar'"></a>
+            <div class="update-password">
+                <p [routerLink]="['/config/update-password']">Alterar Senha</p>
+            </div>
+          </div>
+        </form>
+      </div>
+</div>

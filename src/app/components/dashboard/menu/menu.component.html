@@ -1,0 +1,24 @@
+<div class="grid-menu">
+       <a class="title" [routerLink]="['']">BSs</a>
+       <a class="item-menu" [routerLink]="['']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" >
+           <a class="pi pi-home"></a> Dashboard
+       </a>
+      <a class="item-menu" [routerLink]="['/category']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" >
+        <a class="pi pi-list"></a> Categoria
+      </a>
+      <a class="item-menu" [routerLink]="['/book']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="pi pi-book"></a> Livro
+      </a>
+      <a class="item-menu" [routerLink]="['/customer']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  >
+         <a class="pi pi-user"></a> Cliente
+      </a>
+      <a class="item-menu" [routerLink]="['/author']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  >
+         <a class="pi pi-user"></a> Autor
+     </a>
+      <a class="item-menu" [routerLink]="['/order']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  >
+         <a class="pi pi-eye"></a> Order
+       </a>
+       <a class="item-menu" [routerLink]="['/config']"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" >
+         <a class="pi pi-cog"></a> Configuração
+      </a>
+</div>

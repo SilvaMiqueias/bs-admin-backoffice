@@ -1,0 +1,21 @@
+<div>
+  <h1>Autor</h1>
+
+  <div class="mt-5" >
+    <form class="" [formGroup]="form">
+      <div class="container category-form card flex">
+        <div class="flex justify-content-center">
+          <input formControlName="name" placeholder="Nome" type="text" pInputText/>
+        </div>
+        <div class="flex justify-content-center">
+          <textarea formControlName="description" placeholder="Descrição" rows="5" cols="30" pInputTextarea ></textarea>
+        </div>
+      </div>
+    </form>
+    <div class="container buts mt-3">
+      <a [routerLink]="['/author']" class="pi pi-arrow-left bt-edit" [matTooltip]="'Voltar'"></a>
+      <a class="pi pi-check bt-edit" (click)="createOrUpdate()" [matTooltip]="'Salvar'"></a>
+      <a *ngIf="authorId !== undefined" class="pi pi-trash bt-edit" (click)="delete(authorId!)" [matTooltip]="'Deletar'"></a>
+    </div>
+  </div>
+</div>

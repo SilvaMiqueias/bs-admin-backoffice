@@ -1,0 +1,43 @@
+<div>
+  <h1>Categoria</h1>
+
+  <div class="top-card container mt-5 grid">
+    <div class="col-6 col-sm-12 col-md-6">
+       <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText  placeholder="Pesquisar categoria" (keyup)="filter(Q.value)" #Q/>
+       </span>
+    </div>
+    <div class="col-6 col-sm-12 col-md-6 pi-add">
+        <a class="pi pi-plus-circle bt-edit float-end" [routerLink]="['detail']" style="color: green" [matTooltip]="'Nova categoria'"></a>
+    </div>
+
+    <div class="mt-5  flex card-category bg-transparent col-12 col-sm-12 col-md-12">
+        <div *ngFor="let category of categories">
+            <div class="items flex card p-card-content">
+                <p class="p-card-title">{{category.name}}</p>
+                <p class="p-card-body">{{category.description}}</p>
+                <a class="pi pi-eye bt-edit" [routerLink]="['/category/detail/' + category.id]" [matTooltip]="'Visualizar'"></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="mt-3">
+        <mat-paginator #paginator
+                       class="demo-paginator"
+                       (page)="handlePageEvent($event)"
+                       [length]="length"
+                       [pageSize]="pageSize"
+                       [disabled]="disabled"
+                       [showFirstLastButtons]="showFirstLastButtons"
+                       [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                       [hidePageSize]="hidePageSize"
+                       [pageIndex]="pageIndex"
+                       aria-label="Select page">
+        </mat-paginator>
+    </div>
+
+
+  </div>
+
+</div>

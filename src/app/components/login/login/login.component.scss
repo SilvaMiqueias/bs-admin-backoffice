@@ -1,0 +1,29 @@
+
+.content{
+  padding-top: 20%;
+  color: #281a75;
+}
+
+.content h1{
+  margin-bottom: 0;
+}
+
+.fields{
+  border: 1px solid #f6f3f3;
+  padding: 30px;
+  border-radius: 10px;
+  justify-self: center;
+  display: grid;
+  gap: 24px;
+}
+
+label{
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.content .row{
+  justify-content: center;
+}
+
+
