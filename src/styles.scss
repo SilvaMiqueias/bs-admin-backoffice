@@ -83,6 +83,7 @@ textarea{
 }
 
 .buts{
+  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -115,6 +116,29 @@ textarea{
   font-size: 20px;
   color: #281a75;
   cursor: pointer;
+
+  &:hover{
+    border-bottom: 5px solid #281a75;
+    border-radius: 10px;
+  }
+}
+
+.bt-new{
+  @extend .bt-edit;
+  color: #099c07;
+  &:hover{
+    border-bottom: 5px solid #099c07;
+    border-radius: 10px;
+  }
+}
+
+.bt-cancel{
+  @extend .bt-edit;
+  color: #8c221c;
+  &:hover{
+    border-bottom: 5px solid #8c221c;
+    border-radius: 10px;
+  }
 }
 
 p-password{

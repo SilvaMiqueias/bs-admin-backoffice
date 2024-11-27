@@ -16,6 +16,7 @@ import {PasswordModule} from "primeng/password";
 import {FormsModule} from "@angular/forms";
 import { UpdatePasswordComponent } from './config/update-password/update-password.component';
 import {ConfigModule} from "./config/config.module";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {ConfigModule} from "./config/config.module";
         ConfirmDialogModule,
         SharedModule,
         MatTooltipModule,
-        ConfigModule
+        ConfigModule,
+        MatSidenavModule
     ]
 })
 export class DashboardModule { }

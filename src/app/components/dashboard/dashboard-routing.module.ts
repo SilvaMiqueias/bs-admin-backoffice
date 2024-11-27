@@ -18,7 +18,7 @@ const routes: Routes = [
         path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule)
       },
       {
-        path: 'book', component: NotFoundComponent, canActivate: [AuthGuard]
+        path: 'book', loadChildren: () => import('./book/book.module').then(m => m.BookModule)
       },
       {
         path: 'customer', component: NotFoundComponent, canActivate: [AuthGuard]

@@ -1,46 +1,49 @@
 import {Component, OnInit} from '@angular/core';
+import {BookService} from "../service/book-service.service";
 import {NgxSpinnerService} from "ngx-spinner";
+import {Book} from "../book";
+import {ToastrService} from "ngx-toastr";
 import {PageEvent} from "@angular/material/paginator";
-import {PageAuthor} from "../page-author";
-import {AuthorService} from "../service/author.service";
-import {Author} from "../author";
+import {PageBook} from "../page-book";
 
 @Component({
-  selector: 'app-author-list',
-  templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.scss']
+  selector: 'app-book-list',
+  templateUrl: './book-list.component.html',
+  styleUrls: ['./book-list.component.scss']
 })
-export class AuthorListComponent implements OnInit{
+export class BookListComponent implements OnInit{
+
+  baseImage = 'data:image/png;base64,';
+  books: Book[] | undefined = [];
   private searchTimeout: any;
   search: string = '';
-  authors: Author[] | undefined = [];
-
   hidePageSize = false;
   showPageSizeOptions = true;
   showFirstLastButtons = true;
   disabled = false;
-  pageAuthor: PageAuthor = {};
+  pageBook: PageBook = {};
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent = new PageEvent();
   length: number = 0;
   pageSize: number = 10;
   pageIndex: number = 0;
 
-  constructor(private authorService: AuthorService, private spinner: NgxSpinnerService) {
+
+  constructor(private bookService: BookService, private spinnerService: NgxSpinnerService, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.findAllByPage(this.search, this.pageIndex, this.pageSize)
+    this.findAllByPage(this.search, 0, 10);
   }
 
   findAllByPage(_search: string, page: number, size: number){
-    this.spinner.show();
-    this.authorService.findAllByPage(this.search, page, size).subscribe({
+    this.spinnerService.show();
+    this.bookService.findAllByPage(_search, page, size).subscribe({
       next: (data) => {
-        this.pageAuthor = data;
-        this.authors = this.pageAuthor.content;
-        this.length= this.pageAuthor.totalElements!;
-      } , error: (err) => {}, complete: () => { this.spinner.hide()}
+        this.pageBook = data;
+        this.books = this.pageBook.content;
+        this.length= this.pageBook.totalElements!;
+      } , error: (err) => {}, complete: () => { this.spinnerService.hide()}
     })
   }
 
@@ -62,5 +65,6 @@ export class AuthorListComponent implements OnInit{
       this.findAllByPage(value, 0, this.pageSize);
     }, 1000);
   }
+
 
 }

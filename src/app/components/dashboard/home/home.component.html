@@ -1,11 +1,43 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2 p-sidebar">
-      <div>
-         <app-menu></app-menu>
-      </div>
-    </div>
-    <div class="col-md-10 nav">
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-2 p-sidebar">-->
+<!--      <div>-->
+<!--         <app-menu></app-menu>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-10 nav">-->
+<!--      <div class="navbar navbar-expand-xxl col-md-12">-->
+<!--        <div class="container-fluid menus">-->
+<!--          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--          </button>-->
+<!--          <a class="pi pi-power-off bt-logout" (click)="logout()" [matTooltip]="'Encerrar a seção?'"></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-12 content">-->
+<!--        <router-outlet></router-outlet>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <p-confirmDialog #cd [style]="{width: '25vw'}">-->
+<!--    <ng-template pTemplate="header" class="text-justify" >-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="footer">-->
+<!--      <div class="buts">-->
+<!--        <a  class="bt-base"   icon="pi pi-times" label="Não" (click)="cd.reject()">Não</a>-->
+<!--        <a  class="bt-base"  (click)="cd.accept()">Sim</a>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--  </p-confirmDialog>-->
+<!--</div>-->
+
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" class="p-sidebar" opened>
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="col-md-12 nav">
       <div class="navbar navbar-expand-xxl col-md-12">
         <div class="container-fluid menus">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,15 +50,16 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-  </div>
-  <p-confirmDialog #cd [style]="{width: '25vw'}">
-    <ng-template pTemplate="header" class="text-justify" >
-    </ng-template>
-    <ng-template pTemplate="footer">
-      <div class="buts">
-        <a  class="bt-base"   icon="pi pi-times" label="Não" (click)="cd.reject()">Não</a>
-        <a  class="bt-base"  (click)="cd.accept()">Sim</a>
-      </div>
-    </ng-template>
-  </p-confirmDialog>
-</div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<p-confirmDialog #cd [style]="{width: '25vw'}">-->
+      <ng-template pTemplate="header" class="text-justify" >
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="buts">
+          <a  class="bt-base"   icon="pi pi-times" label="Não" (click)="cd.reject()">Não</a>
+          <a  class="bt-base"  (click)="cd.accept()">Sim</a>
+        </div>
+      </ng-template>
+</p-confirmDialog>
