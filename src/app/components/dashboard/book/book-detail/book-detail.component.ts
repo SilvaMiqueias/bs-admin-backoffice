@@ -82,8 +82,8 @@ export class BookDetailComponent implements OnInit{
   onFileChange(event: any) {
     const file = event.target.files[0];
     if (file) {
-     if(file.name.split('.').pop().toLowerCase() !== 'png') {
-       this.toastr.warning('Apenas é permitido arquivos .png');
+     if(file.name.split('.').pop().toLowerCase() !== 'jpg') {
+       this.toastr.warning('Apenas é permitido arquivos .jpg');
        const iptImage = document.getElementById('images') as HTMLInputElement;
        if (iptImage !== null) {iptImage.value = ''};
      }else{

@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'book', loadChildren: () => import('./book/book.module').then(m => m.BookModule)
       },
       {
-        path: 'customer', component: NotFoundComponent, canActivate: [AuthGuard]
+        path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
       },
       {
         path: 'author', loadChildren: () => import('./author/author.module').then(m => m.AuthorModule)
