@@ -1,0 +1,57 @@
+<div>
+   <h1>Livro</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText  placeholder="Pesquisar livro" (keyup)="filter(Q.value)" #Q/>
+           </span>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6">
+          <a class="bt-new float-lg-end" [routerLink]="['detail']" >Adicionar Livro</a>
+        </div>
+
+        <div class="content mt-5 books">
+          <div *ngFor="let book of books" class="" >
+<!--            <p-card header="{{book.title}}"  [style]="{ height: '300px', width: '200px' }">-->
+<!--              <ng-template pTemplate="header">-->
+<!--                <img alt="Card" [src]="baseImage + book.image" />-->
+<!--              </ng-template>-->
+<!--              <ng-template pTemplate="footer">-->
+<!--                <a [routerLink]="['detail/' + book.id]" class="pi pi-eye bt-edit"></a>-->
+<!--              </ng-template>-->
+<!--            </p-card>-->
+            <div class="content-book">
+              <div class="img-book">
+                <img alt="Card" [src]="baseImage + book.image" />
+              </div>
+              <p>{{book.title}}</p>
+              <a  [routerLink]="['detail/' + book.id]" class="pi pi-eye bt-edit" [matTooltip]="'Visualizar'"></a>
+              <div class="tags" >
+                <p-tag icon="pi pi-user" [matTooltip]="'Autor'" *ngFor="let aut of book.authors" value="{{aut.name}}"></p-tag>
+                <p-tag icon="pi pi-list" [matTooltip]="'Categoria'" severity="warning" *ngFor="let cat of book.categories" value="{{cat.name}}"></p-tag>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="mt-5 col-md-6">
+        <mat-paginator #paginator
+                       class="demo-paginator"
+                       (page)="handlePageEvent($event)"
+                       [length]="length"
+                       [pageSize]="pageSize"
+                       [disabled]="disabled"
+                       [showFirstLastButtons]="showFirstLastButtons"
+                       [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                       [hidePageSize]="hidePageSize"
+                       [pageIndex]="pageIndex"
+                       aria-label="Select page">
+        </mat-paginator>
+      </div>
+    </div>
+</div>

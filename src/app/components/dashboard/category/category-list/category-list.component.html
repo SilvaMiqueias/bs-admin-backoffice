@@ -9,14 +9,13 @@
        </span>
     </div>
     <div class="col-6 col-sm-12 col-md-6 pi-add">
-        <a class="pi pi-plus-circle bt-edit float-end" [routerLink]="['detail']" style="color: green" [matTooltip]="'Nova categoria'"></a>
+        <a class="bt-new float-end" [routerLink]="['detail']" >Adicionar Categoria</a>
     </div>
 
     <div class="mt-5  flex card-category bg-transparent col-12 col-sm-12 col-md-12">
         <div *ngFor="let category of categories">
             <div class="items flex card p-card-content">
                 <p class="p-card-title">{{category.name}}</p>
-                <p class="p-card-body">{{category.description}}</p>
                 <a class="pi pi-eye bt-edit" [routerLink]="['/category/detail/' + category.id]" [matTooltip]="'Visualizar'"></a>
             </div>
         </div>

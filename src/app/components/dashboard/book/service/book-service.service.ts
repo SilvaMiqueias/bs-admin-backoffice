@@ -1,40 +1,40 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {PageAuthor} from "../page-author";
-import {Author} from "../author";
+import {Book} from "../book";
+import {PageBook} from "../page-book";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorService {
+export class BookService {
 
-  url = 'http://localhost:8080/report/author/';
+  url = 'http://localhost:8080/report/book/';
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<Author[]>{
+  findAll(): Observable<Book[]>{
     return this.http.get<[]>(this.url + 'find-all')
   }
 
-  findAllByPage(search: string, page: number, size: number): Observable<PageAuthor>{
+  findAllByPage(search: string, page: number, size: number): Observable<PageBook>{
     let params = new HttpParams()
       .set('search', search)
       .set('page', page.toString())
       .set('size', size.toString());
 
-    return this.http.get<PageAuthor>(this.url + 'find-all-by-page', {params});
+    return this.http.get<PageBook>(this.url + 'find-all-by-page', {params});
   }
 
   findBy(id: string){
     return this.http.get(this.url + 'find-by/' + id);
   }
 
-  create(credentials: {name: string, description: string}): Observable<any>{
+  create(credentials: Book): Observable<any>{
     return  this.http.post(this.url + 'create', credentials);
   }
 
-  update(credentials: {id: string, name: string, description: string}){
+  update(credentials: Book){
     return  this.http.put(this.url + 'update', credentials);
   }
 

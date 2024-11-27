@@ -64,7 +64,7 @@ export class CategoryListComponent  implements  OnInit{
     this.searchTimeout =  setTimeout(() =>{
       this.search = value;
       this.findAllByPage(value, 0, this.pageSize);
-    }, 2000);
+    }, 1000);
   }
 
 }

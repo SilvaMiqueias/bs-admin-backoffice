@@ -1,0 +1,99 @@
+<div>
+  <h1>Livro</h1>
+  <div class="mt-5 mb-5">
+    <div class="card">
+      <form [formGroup]="form">
+        <div class="row content">
+             <div class="col-md-12">
+                  <label>Titulo</label>
+                  <input formControlName="title" type="text" />
+             </div>
+              <div class="col-md-12">
+                <label>Descrição</label>
+                <textarea formControlName="description" rows="5" cols="30"  ></textarea>
+              </div>
+              <div class="row">
+                  <div class="col-md-3">
+                    <label>Preço</label>
+                    <input formControlName="price" type="text" />
+                  </div>
+                  <div class="col-md-3">
+                    <label>Quantidade</label>
+                    <input formControlName="qtd" type="number" />
+                  </div>
+                  <div class="col-md-3">
+                    <label>Página</label>
+                    <input formControlName="page" type="number" />
+                  </div>
+                  <div class="col-md-3">
+                    <label>Idioma</label>
+                    <input formControlName="language" type="text" />
+                  </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <label>Data de Lançamento</label>
+                  <p-calendar formControlName="releaseDate"  dateFormat="dd/mm/yy"></p-calendar>
+                </div>
+                <div class="col-md-4">
+                  <label id="upload">Imagem</label>
+                  <label  for="images" class="drop-container" id="dropcontainer">
+                    <span class="drop-title">Adicione o arquivo aqui</span>
+                    ou
+                    <input type="file" id="images" (change)="onFileChange($event)" accept="image/png" required>
+                  </label>
+                  <p>Permitido apenas arquivos .png</p>
+                </div>
+                <div class="col-md-4">
+                  <div *ngIf="imageUrl" class="card-preview">
+                    <img  [src]="imageUrl" alt="Imagem Carregada" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 mt-3">
+                <label>Categoria</label>
+                <div class="">
+                  <p-pickList [source]="sourceCategories" [target]="targetCategories" sourceHeader="Disponíveis" targetHeader="Selecionadas" [dragdrop]="true" [responsive]="true"
+                              [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px">
+                    <ng-template let-category pTemplate="item">
+                      <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                          <span class="font-bold">{{ category.name }}</span>
+                          <div class="flex align-items-center gap-2">
+                            <i class="pi pi-tag text-sm"></i>
+                            <span>{{ category.description }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </p-pickList>
+                </div>
+              </div>
+              <div class="col-md-12 mt-3">
+                <label>Autor</label>
+                <div class="">
+                  <p-pickList [source]="sourceAuthors" [target]="targetAuthors" sourceHeader="Disponíveis" targetHeader="Selecionados" [dragdrop]="true" [responsive]="true"
+                              [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px">
+                    <ng-template let-author pTemplate="item">
+                      <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                          <span class="font-bold">{{ author.name }}</span>
+                          <div class="flex align-items-center gap-2">
+                            <i class="pi pi-tag text-sm"></i>
+                            <span>{{ author.description }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </p-pickList>
+                </div>
+              </div>
+        </div>
+      </form>
+    </div>
+    <div class="buts mt-3 mb-5">
+      <a class="bt-cancel" [routerLink]="['/book']">Cancelar</a>
+      <a class="bt-new"  (click)="create()">{{bookId === undefined ? 'Salvar' : 'Editar'}}</a>
+    </div>
+  </div>
+</div>
