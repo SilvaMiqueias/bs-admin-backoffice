@@ -8,7 +8,7 @@ import {PageCustomer} from "../page.customer";
 })
 export class CustomerService {
 
-  url = 'http://localhost:8080/report/customer/';
+  url = 'http://localhost:8080/report/auth/customer/';
 
 
   constructor(private http: HttpClient) { }

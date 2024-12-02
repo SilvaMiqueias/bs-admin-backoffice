@@ -9,7 +9,7 @@ import {PageCategory} from "../page-category";
 })
 export class CategoryService {
 
-  url = 'http://localhost:8080/report/category/';
+  url = 'http://localhost:8080/report/auth/category/';
 
   constructor(private http: HttpClient) { }
 
