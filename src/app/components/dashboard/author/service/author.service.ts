@@ -9,7 +9,7 @@ import {Author} from "../author";
 })
 export class AuthorService {
 
-  url = 'http://localhost:8080/report/author/';
+  url = 'http://localhost:8080/report/auth/author/';
 
   constructor(private http: HttpClient) { }
 

@@ -9,7 +9,7 @@ import {PageBook} from "../page-book";
 })
 export class BookService {
 
-  url = 'http://localhost:8080/report/book/';
+  url = 'http://localhost:8080/report/auth/book/';
 
   constructor(private http: HttpClient) { }
 
